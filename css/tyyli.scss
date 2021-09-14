@@ -1,5 +1,24 @@
+$taustavari: rgb(31, 28, 28);
+$tekstinvari: rgba(255,255,255, 0.7);
+$sisennys: 1em;
+$fontnkoko: clamp(1rem, 4vw, 1,4rem);
+$muunto: transition 0.7 all;
+
+@mixin flexit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+body {
+    font-family: 'Glory', sans-serif;
 }
