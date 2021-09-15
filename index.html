@@ -10,18 +10,35 @@
     <link href="https://fonts.googleapis.com/css2?family=Glory:ital,wght@0,400;0,700;0,800;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/tyyli.css">
 </head>
-<body>
+<body>      
     <nav>
         <ul>
             <li class="navlistaelementit" data-id="people/">People</li>
+            <li class="navlistaelementit" data-id="planets/">Planets</li>
+            <li class="navlistaelementit" data-id="vehicles/">Vehicles</li>
+            <li class="navlistaelementit" data-id="starships/">Starships</li>
         </ul>
     </nav>
-    <header></header>
-    <section>
-        <div class="luokka"></div>
-        <div class="kohdelista"></div>
-        
-    </section>
+    <header>
+        <h1>Tähtiensota tietoja rajapinnasta </h1>
+        <h5>Käyttää SWAPI:a</h5>
+    </header>
+    <div class="esittelyalue">
+        <section class="luokkalista">
+            <div class="luokka"></div>
+            <div class="nappienalue">
+                <div class="vasennappi"></div>
+                <div class="oikeanappi"></div>
+            </div>
+            <div class="kohdelista"></div>
+        </section>
+        <section class="tiedotyhdestä">
+
+        </section>
+        <section class="kuvasection">
+
+        </section>
+    </div>
     <script src="scripts/axios.min.js"></script>
     <script src="scripts/main.js"></script>
 </body>

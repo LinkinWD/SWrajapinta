@@ -1,10 +1,12 @@
 /* DOM elementit */
+const esittelyAlue = document.querySelector('.esittelyalue')
 const luokka = document.querySelector('.luokka')
 const kohdeLista = document.querySelector('.kohdelista')
+const vasenNappi = document.querySelector('.vasennappi')
+const oikeaNappi = document.querySelector('.oikeanappi')
 
 
-
-/* navbarin kuuntelija */
+/* navbarin kuuntelija. Kun painat haluttua listaaa(ihmiset, planeetat....), tämä function hakee html osaan data-id:nä tallennetun luokka osoitteen ja tallentaa sen nykyiseksi luokaksi*/
 const navElementit = document.querySelectorAll('.navlistaelementit')
 
 navElementit.forEach(kohde => 
@@ -12,43 +14,26 @@ navElementit.forEach(kohde =>
         nykyinenLuokka = this.dataset.id
         yhteys(nykyinenLuokka)
     }))
-/* yhteystiedot ja niihin liittyvät muutujat */
-const osoite = 'https://swapi.dev/api/'
-const ihmiset = 'people/'
+/* Sivuun liittyvät muutujat. Otsikko, lista mihin tallennetaan saadut tiedot, nykyinen luokka ja nappien osoitteet, että osaavat vaihtaa sivuja*/
 let nykyinenOtsikko = ''
 let nykyinenLista = []
 let nykyinenLuokka = ''
 let edellinenNappi = ''
 let seuraavaNappi = ''
 
+
 /* Yhteys function, luodaan listat kohteista sivulle */
-/* ensinluodaan yhteys axios get ja tyhjennetään nykyinen lista muutuja, mihin aina sivujen sisältö työnnetään seuraavaksi. Tehdään otsikko ja asennetaan napeille osoitteet mitkää saadaan verkkosivulta vastauksena. Tyhjennetäänn lista DOM:ista ja lisätään lista ja napit functioilla */
+/* Haetaan tiedot axioksen avulla määrätystä luokasta, joka on valittu navbarista, luodaan otsikko ja käynnistetään päivitäLista function 'responsella' mikä on saatu rajapinnasta */
 const yhteys = async (luokka) => {
-    let res = await axios.get(osoite+luokka)
-    nykyinenLista = []
-    let lista =res.data.results
-    for(let asia of lista) {
-        nykyinenLista.push(asia)
-    }
+    let res = await axios.get('https://swapi.dev/api/'+luokka)
     nykyinenOtsikko = luokka.slice (0, -1)
-    edellinenNappi = res.data.previous
-    seuraavaNappi = res.data.next
-    kohdeLista.innerHTML = ''
-    lisääLista()
-    lisääNapit()
+    päivitäLista(res)
+    muutaTaustakuva()
 }
+/* vähän sama kuin yläpuolella, mutta nyt käytetään edellinenNappi ja seuraavaNappiin tallennettuja haku osoittetita */
 const vaihdaSivua= async (nappi) => {
     let res = await axios.get(nappi)
-    nykyinenLista = []
-    let lista =res.data.results
-    for(let asia of lista) {
-        nykyinenLista.push(asia)
-    }
-    edellinenNappi = res.data.previous
-    seuraavaNappi = res.data.next
-    kohdeLista.innerHTML = ''
-    lisääLista()
-    lisääNapit()
+    päivitäLista(res)
 }
 
 
@@ -70,19 +55,48 @@ function lisääLista() {
     }
     kohdeLista.append(ul)
 }
+/* Luodaan napit listalle ja lisätään niihin kuuntelija, jos haluaa vaihtaa sivua */
 const lisääNapit = () => {
+    /* jos arvo on null, eli napilla ei ole osoitetta, sitä ei luoda */
     if(edellinenNappi) {
+        vasenNappi.innerHTML = ''
         let nappi = document.createElement('button')
         nappi.innerText = "Edellinen"
         nappi.addEventListener('click', function() {
             vaihdaSivua(edellinenNappi)
         })
-        luokka.append(nappi)
+        vasenNappi.append(nappi)
     }
     if(seuraavaNappi) {
+        oikeaNappi.innerHTML = ''
         let nappi = document.createElement('button')
         nappi.innerText = "Seuraava"
         nappi.addEventListener('click', function(){ vaihdaSivua(seuraavaNappi)})
-        luokka.append(nappi)
+        oikeaNappi.append(nappi)
+    }
+}
+
+/* nykyinen lista muuttuja tyhjennetään ja täytetään. Asetetaan nappi muutujille osoitteet. tyhjennetään dom lista ja käynnistetään function lisäälista ja napit */ 
+const päivitäLista = (res) => {
+    nykyinenLista = []
+    let lista =res.data.results
+    for(let asia of lista) {
+        nykyinenLista.push(asia)
+    }
+    edellinenNappi = res.data.previous
+    seuraavaNappi = res.data.next
+    kohdeLista.innerHTML = ''
+    lisääLista()
+    lisääNapit()
+}
+const muutaTaustakuva = () => {
+    if(nykyinenOtsikko === 'people') {
+        esittelyAlue.style.backgroundImage = "url('img/darth.jpg')"
+    } else if(nykyinenOtsikko === 'planets') {
+        esittelyAlue.style.backgroundImage = "url('img/tatooine.jpg')"
+    } else if (nykyinenOtsikko === 'vehicles') {
+        esittelyAlue.style.backgroundImage = "url('img/at.jpg')"
+    } else if(nykyinenOtsikko === 'starships') {
+        esittelyAlue.style.backgroundImage = "url('img/deathstar.jpg')"
     }
 }

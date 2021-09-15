@@ -1,7 +1,7 @@
 $taustavari: rgb(31, 28, 28);
 $tekstinvari: rgba(255,255,255, 0.7);
 $sisennys: 1em;
-$fontnkoko: clamp(1rem, 4vw, 1,4rem);
+$fontnkoko: clamp(1.1rem, 4vw, 1.8rem);
 $muunto: transition 0.7 all;
 
 @mixin flexit {
@@ -9,7 +9,6 @@ $muunto: transition 0.7 all;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    flex-direction: column;
 }
 
 
@@ -21,4 +20,68 @@ $muunto: transition 0.7 all;
 
 body {
     font-family: 'Glory', sans-serif;
+    background: $taustavari;
+    color: $tekstinvari;
+    line-height: 1.4;
+}
+
+nav {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    ul {
+    
+    @include flexit();
+    justify-content: space-evenly;
+        li {
+            background: $tekstinvari;   
+            padding: 5px 20px;
+            list-style: none;
+            color: $taustavari;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    }
+    
+}
+header {
+    margin-bottom: 30px;
+    text-align: center;
+    h1 {
+        text-decoration: uppercase;
+    }
+}
+
+.esittelyalue {
+    display: grid;
+    grid-template-columns: repeat(3, 33%);
+    font-size: $fontnkoko;
+    
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 80vh;
+    opacity: 0.5;
+    .luokkalista {
+        padding: $sisennys;
+        .luokka {
+            text-align: center;
+            text-transform: uppercase;
+        }
+        li {
+            list-style: none;
+            cursor: pointer;
+        }
+        .nappienalue {
+            display: grid;
+            grid-template-columns: 50% 50%;
+            margin-bottom: 20px;
+        }
+    }
+    .tiedotyhdestä {
+        border: 2px solid white;
+    }
+}
+
+button {
+    padding: 5px 20px;
 }

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   margin: 0;
   padding: 0;
@@ -7,5 +8,92 @@
 
 body {
   font-family: 'Glory', sans-serif;
+  background: #1f1c1c;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.4;
+}
+
+nav {
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+nav ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+nav ul li {
+  background: rgba(255, 255, 255, 0.7);
+  padding: 5px 20px;
+  list-style: none;
+  color: #1f1c1c;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+header {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+header h1 {
+  -webkit-text-decoration: uppercase;
+          text-decoration: uppercase;
+}
+
+.esittelyalue {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (33%)[3];
+      grid-template-columns: repeat(3, 33%);
+  font-size: clamp(1.1rem, 4vw, 1.8rem);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 80vh;
+  opacity: 0.5;
+}
+
+.esittelyalue .luokkalista {
+  padding: 1em;
+}
+
+.esittelyalue .luokkalista .luokka {
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.esittelyalue .luokkalista li {
+  list-style: none;
+  cursor: pointer;
+}
+
+.esittelyalue .luokkalista .nappienalue {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 50% 50%;
+      grid-template-columns: 50% 50%;
+  margin-bottom: 20px;
+}
+
+.esittelyalue .tiedotyhdestä {
+  border: 2px solid white;
+}
+
+button {
+  padding: 5px 20px;
 }
 /*# sourceMappingURL=tyyli.css.map */
