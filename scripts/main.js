@@ -64,6 +64,7 @@ function lisääLista() {
 
     }
     kohdeLista.append(ul)
+    tiedotYhdestä.innerHTML = ''
 }
 /* Luodaan napit listalle ja lisätään niihin kuuntelija, jos haluaa vaihtaa sivua */
 const lisääNapit = () => {
@@ -101,12 +102,16 @@ const päivitäLista = (res) => {
 }
 const muutaTaustakuva = () => {
     if(nykyinenOtsikko === 'people') {
+        esittelyAlue.style.color = 'white'
         esittelyAlue.style.backgroundImage = "url('img/darth.jpg')"
     } else if(nykyinenOtsikko === 'planets') {
+        esittelyAlue.style.color = 'black'
         esittelyAlue.style.backgroundImage = "url('img/tatooine.jpg')"
     } else if (nykyinenOtsikko === 'vehicles') {
+        esittelyAlue.style.color = 'white'
         esittelyAlue.style.backgroundImage = "url('img/at.jpg')"
     } else if(nykyinenOtsikko === 'starships') {
+        esittelyAlue.style.color = 'white'
         esittelyAlue.style.backgroundImage = "url('img/deathstar.jpg')"
     }
 }
