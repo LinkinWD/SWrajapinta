@@ -4,6 +4,7 @@ const luokka = document.querySelector('.luokka')
 const kohdeLista = document.querySelector('.kohdelista')
 const vasenNappi = document.querySelector('.vasennappi')
 const oikeaNappi = document.querySelector('.oikeanappi')
+const tiedotYhdestä = document.querySelector('.tiedotyhdestä')
 
 
 /* navbarin kuuntelija. Kun painat haluttua listaaa(ihmiset, planeetat....), tämä function hakee html osaan data-id:nä tallennetun luokka osoitteen ja tallentaa sen nykyiseksi luokaksi*/
@@ -25,22 +26,31 @@ let seuraavaNappi = ''
 /* Yhteys function, luodaan listat kohteista sivulle */
 /* Haetaan tiedot axioksen avulla määrätystä luokasta, joka on valittu navbarista, luodaan otsikko ja käynnistetään päivitäLista function 'responsella' mikä on saatu rajapinnasta */
 const yhteys = async (luokka) => {
+    try {
     let res = await axios.get('https://swapi.dev/api/'+luokka)
     nykyinenOtsikko = luokka.slice (0, -1)
     päivitäLista(res)
     muutaTaustakuva()
+    } catch(err) {
+        console.log(err.message)
+    }
 }
 /* vähän sama kuin yläpuolella, mutta nyt käytetään edellinenNappi ja seuraavaNappiin tallennettuja haku osoittetita */
 const vaihdaSivua= async (nappi) => {
+    try {
     let res = await axios.get(nappi)
     päivitäLista(res)
+    } catch(err) {
+        console.log(err.message)
+    }
 }
 
 
 /* Etsitään nykyisestä listasta sen indeksi, jolla on sama name kuin tässä lista elementissä on teksti */
 function näytäTiedot() {
     const etsi = nykyinenLista.findIndex(kohde => kohde.name === this.innerText )
-    console.log(etsi)
+    console.log(nykyinenLista[etsi])
+    yhdenTiedot(etsi)
 }
 /* Luodaan lista elementti ja liitetään siihen kaikki nimet nykyiseltälistalta */
 function lisääLista() {
