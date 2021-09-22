@@ -2,7 +2,7 @@ $taustavari: rgb(31, 28, 28);
 $tekstinvari: rgba(255,255,255, 0.7);
 $sisennys: 1em;
 $fontnkoko: clamp(1.1rem, 4vw, 1.8rem);
-$muunto: transition 0.7 all;
+$muunto: 0.7 all;
 
 @mixin flexit {
     display: flex;
@@ -29,16 +29,21 @@ nav {
     margin-top: 30px;
     margin-bottom: 20px;
     ul {
-    
+    transition: $muunto;
     @include flexit();
     justify-content: space-evenly;
         li {
             background: $tekstinvari;   
-            padding: 5px 20px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            padding: 5px 40px;
             list-style: none;
             color: $taustavari;
             border-radius: 5px;
             cursor: pointer;
+        }
+        li:hover {
+            transform: scale(1.2);
         }
     }
     
@@ -46,6 +51,7 @@ nav {
 header {
     margin-bottom: 30px;
     text-align: center;
+    font-size: 1.2rem;
     h1 {
         text-decoration: uppercase;
     }
@@ -55,7 +61,7 @@ header {
     display: grid;
     grid-template-columns: repeat(3, 33%);
     font-size: $fontnkoko;
-    
+    font-weight: 700;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -78,10 +84,33 @@ header {
         }
     }
     .tiedotyhdestä {
+        
         border: 2px solid white;
+        h5 {
+            margin: 1em;
+            font-size: 2rem;
+            text-align: center;
+        }
+        p {
+            margin-left: 1em;
+        }
     }
 }
 
 button {
     padding: 5px 20px;
+}
+.kuvasection {
+    @include flexit();
+    div {
+        padding: 5px;
+    }
+    img {
+        width: 150px;
+        height: 220px;
+
+    }
+    img:hover {
+        transform: scale(0.9);
+    }
 }

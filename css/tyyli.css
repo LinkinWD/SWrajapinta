@@ -19,6 +19,8 @@ nav {
 }
 
 nav ul {
+  -webkit-transition: 0.7 all;
+  transition: 0.7 all;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -37,16 +39,24 @@ nav ul {
 
 nav ul li {
   background: rgba(255, 255, 255, 0.7);
-  padding: 5px 20px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  padding: 5px 40px;
   list-style: none;
   color: #1f1c1c;
   border-radius: 5px;
   cursor: pointer;
 }
 
+nav ul li:hover {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
 header {
   margin-bottom: 30px;
   text-align: center;
+  font-size: 1.2rem;
 }
 
 header h1 {
@@ -60,6 +70,7 @@ header h1 {
   -ms-grid-columns: (33%)[3];
       grid-template-columns: repeat(3, 33%);
   font-size: clamp(1.1rem, 4vw, 1.8rem);
+  font-weight: 700;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -93,7 +104,45 @@ header h1 {
   border: 2px solid white;
 }
 
+.esittelyalue .tiedotyhdestä h5 {
+  margin: 1em;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.esittelyalue .tiedotyhdestä p {
+  margin-left: 1em;
+}
+
 button {
   padding: 5px 20px;
+}
+
+.kuvasection {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.kuvasection div {
+  padding: 5px;
+}
+
+.kuvasection img {
+  width: 150px;
+  height: 220px;
+}
+
+.kuvasection img:hover {
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
 }
 /*# sourceMappingURL=tyyli.css.map */

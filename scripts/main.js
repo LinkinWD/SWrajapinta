@@ -5,7 +5,9 @@ const kohdeLista = document.querySelector('.kohdelista')
 const vasenNappi = document.querySelector('.vasennappi')
 const oikeaNappi = document.querySelector('.oikeanappi')
 const tiedotYhdestä = document.querySelector('.tiedotyhdestä')
-
+const kuvaSektio = document.querySelector('.kuvasection')
+const posterit = document.querySelector('.posterit')
+const selitys = document.querySelector('.selitys')
 
 /* navbarin kuuntelija. Kun painat haluttua listaaa(ihmiset, planeetat....), tämä function hakee html osaan data-id:nä tallennetun luokka osoitteen ja tallentaa sen nykyiseksi luokaksi*/
 const navElementit = document.querySelectorAll('.navlistaelementit')
@@ -103,15 +105,19 @@ const päivitäLista = (res) => {
 const muutaTaustakuva = () => {
     if(nykyinenOtsikko === 'people') {
         esittelyAlue.style.color = 'white'
+        tiedotYhdestä.style.color = 'white'
         esittelyAlue.style.backgroundImage = "url('img/darth.jpg')"
     } else if(nykyinenOtsikko === 'planets') {
         esittelyAlue.style.color = 'black'
+        tiedotYhdestä.style.color = 'black'
         esittelyAlue.style.backgroundImage = "url('img/tatooine.jpg')"
     } else if (nykyinenOtsikko === 'vehicles') {
         esittelyAlue.style.color = 'white'
+        tiedotYhdestä.style.color = 'white'
         esittelyAlue.style.backgroundImage = "url('img/at.jpg')"
     } else if(nykyinenOtsikko === 'starships') {
         esittelyAlue.style.color = 'white'
+        tiedotYhdestä.style.color = 'black'
         esittelyAlue.style.backgroundImage = "url('img/deathstar.jpg')"
     }
 }

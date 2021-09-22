@@ -56,7 +56,7 @@ if(nykyinenLuokka === 'people/'){
     <p>Manufacturer: ${nykyinenLista[idx].manufacturer}</p>
     <p>Class: ${nykyinenLista[idx].vehicle_class}</p>
     <p>Max atmosphering speed: ${nykyinenLista[idx].max_atmosphering_speed}km/h</p>
-    <p>Cost in credits: ${muokkaaCreditit}</p>
+    <p>Cost: ${muokkaaCreditit} credits</p>
     <p>Max Cargo: ${muokkaaCargo}kg</p>
     `
 } else if(nykyinenLuokka === 'starships/') {
@@ -73,6 +73,6 @@ if(nykyinenLuokka === 'people/'){
     <p>Model: ${nykyinenLista[idx].model}</p>
     <p>Manufacturer: ${nykyinenLista[idx].manufacturer}</p>
     <p>Cargo: ${muokkaaCargo}</p>
-    <p>Cost in credits: ${muokkaaCreditit}</p>`
+    <p>Cost: ${muokkaaCreditit} credits</p>`
 }
 }

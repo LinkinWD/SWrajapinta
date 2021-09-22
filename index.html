@@ -20,12 +20,14 @@
         </ul>
     </nav>
     <header>
-        <h1>Tähtiensota tietoja rajapinnasta </h1>
-        <h5>Käyttää SWAPI:a</h5>
+        <h1>Tähtiensota tietoja rajapinnoista </h1>
+        <p>Käyttää SWAPI:a ja OMDd API:a(tähtiensota ja elokuva rajapintoja)</p>
     </header>
     <div class="esittelyalue">
         <section class="luokkalista">
-            <div class="luokka"></div>
+            <div class="luokka">
+                <p>Valitse ylhäältä luokka, nähdäksesi mitä kaikkea se sisältää.</p>
+            </div>
             <div class="nappienalue">
                 <div class="vasennappi"></div>
                 <div class="oikeanappi"></div>
@@ -33,14 +35,16 @@
             <div class="kohdelista"></div>
         </section>
         <section class="tiedotyhdestä">
-
+            <p>Tähän tulevat tiedot haluamastasi asiasta yläluokissa tahi elokuvien tietoja.</p>
         </section>
         <section class="kuvasection">
-
+            <div class="posterit"></div>
+            <div class="selitys"></div>
         </section>
     </div>
     <script src="scripts/axios.min.js"></script>
     <script src="scripts/main.js"></script>'
     <script src="scripts/tiedotYhdesta.js"></script>
+    <script src="scripts/videot.js"></script>
 </body>
 </html>
