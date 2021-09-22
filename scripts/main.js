@@ -51,7 +51,6 @@ const vaihdaSivua= async (nappi) => {
 /* Etsitään nykyisestä listasta sen indeksi, jolla on sama name kuin tässä lista elementissä on teksti */
 function näytäTiedot() {
     const etsi = nykyinenLista.findIndex(kohde => kohde.name === this.innerText )
-    console.log(nykyinenLista[etsi])
     yhdenTiedot(etsi)
 }
 /* Luodaan lista elementti ja liitetään siihen kaikki nimet nykyiseltälistalta */
@@ -102,6 +101,7 @@ const päivitäLista = (res) => {
     lisääLista()
     lisääNapit()
 }
+/* Taustakuva ja kirjoitusvärit muuttuvat sen mukana, riippuen missä luokassa mennään, joka saadaan vertaamalla otsikkoa */
 const muutaTaustakuva = () => {
     if(nykyinenOtsikko === 'people') {
         esittelyAlue.style.color = 'white'
@@ -109,7 +109,7 @@ const muutaTaustakuva = () => {
         esittelyAlue.style.backgroundImage = "url('img/darth.jpg')"
     } else if(nykyinenOtsikko === 'planets') {
         esittelyAlue.style.color = 'black'
-        tiedotYhdestä.style.color = 'black'
+        tiedotYhdestä.style.color = 'white'
         esittelyAlue.style.backgroundImage = "url('img/tatooine.jpg')"
     } else if (nykyinenOtsikko === 'vehicles') {
         esittelyAlue.style.color = 'white'
@@ -117,7 +117,7 @@ const muutaTaustakuva = () => {
         esittelyAlue.style.backgroundImage = "url('img/at.jpg')"
     } else if(nykyinenOtsikko === 'starships') {
         esittelyAlue.style.color = 'white'
-        tiedotYhdestä.style.color = 'black'
+        tiedotYhdestä.style.color = 'white'
         esittelyAlue.style.backgroundImage = "url('img/deathstar.jpg')"
     }
 }

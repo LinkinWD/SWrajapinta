@@ -1,9 +1,13 @@
+/* käytän scss laajennusta, sen sanotaan antavan normalille css:llä supervoimat ja niin se tekeekin */
+
+/* muutujat */
 $taustavari: rgb(31, 28, 28);
 $tekstinvari: rgba(255,255,255, 0.7);
 $sisennys: 1em;
 $fontnkoko: clamp(1.1rem, 4vw, 1.8rem);
 $muunto: 0.7 all;
 
+/* ns function */
 @mixin flexit {
     display: flex;
     justify-content: center;
@@ -11,8 +15,8 @@ $muunto: 0.7 all;
     flex-wrap: wrap;
 }
 
-
-* {
+/* nollataan kaikkki alussa */
+*, *::after, *::before {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -62,6 +66,7 @@ header {
     grid-template-columns: repeat(3, 33%);
     font-size: $fontnkoko;
     font-weight: 700;
+    /* background-image lisätään javascriptillä, riippuen mitä luokkaa katsotaan */
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -84,8 +89,10 @@ header {
         }
     }
     .tiedotyhdestä {
-        
+        z-index: 10;
+        background: rgba($color: #000000, $alpha: 0.6);
         border: 2px solid white;
+        border-radius: 10px;
         h5 {
             margin: 1em;
             font-size: 2rem;

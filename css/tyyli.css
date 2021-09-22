@@ -1,5 +1,9 @@
 @charset "UTF-8";
-* {
+/* käytän scss laajennusta, sen sanotaan antavan normalille css:llä supervoimat ja niin se tekeekin */
+/* muutujat */
+/* ns function */
+/* nollataan kaikkki alussa */
+*, *::after, *::before {
   margin: 0;
   padding: 0;
   -webkit-box-sizing: border-box;
@@ -71,6 +75,7 @@ header h1 {
       grid-template-columns: repeat(3, 33%);
   font-size: clamp(1.1rem, 4vw, 1.8rem);
   font-weight: 700;
+  /* background-image lisätään javascriptillä, riippuen mitä luokkaa katsotaan */
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -101,7 +106,10 @@ header h1 {
 }
 
 .esittelyalue .tiedotyhdestä {
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.6);
   border: 2px solid white;
+  border-radius: 10px;
 }
 
 .esittelyalue .tiedotyhdestä h5 {

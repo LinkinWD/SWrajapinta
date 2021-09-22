@@ -17,6 +17,8 @@ const haeKotiplaneetta = async(osoite) => {
     }
 }
 
+/* yhdentiedot on isohko function, missä tulostetaan tietyn kohteen sisältö luokkaan sopivalla tyylillä. Siinä käytetään argumenttinä indexiä, mikä on etitty toisella functiolla */
+
 const yhdenTiedot = (idx) => {
     
 if(nykyinenLuokka === 'people/'){
