@@ -60,6 +60,9 @@ const laitaPosteritDomiin = () => {
         div.append(img)
         kuvaSektio.append(div)
     }
+    const div = document.createElement('div')
+    div.innerText = 'copyright: kohtuullinen käyttö opetukseen'
+    kuvaSektio.append(div)
 }
 /* laitetaan elokuvat(niiden kuvat) suoraan domiin */
 laitaPosteritDomiin()
