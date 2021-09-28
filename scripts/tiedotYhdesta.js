@@ -5,7 +5,7 @@ function muunna(mikamuunnetaan) {
     return mikamuunnetaan.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
-/* Tarvitaa henkilönkohdalla */
+/* Tarvitaa henkilönkohdalla, haetaan kotiplaneetta ja myöhemmin siitä otetaan nimi muualla */
 const haeKotiplaneetta = async(osoite) => {
     try {
         let res = await axios.get(osoite)
@@ -17,11 +17,12 @@ const haeKotiplaneetta = async(osoite) => {
     }
 }
 
-/* yhdentiedot on isohko function, missä tulostetaan tietyn kohteen sisältö luokkaan sopivalla tyylillä. Siinä käytetään argumenttinä indexiä, mikä on etitty toisella functiolla */
+/* yhdentiedot on isohko function, missä tulostetaan tietyn kohteen sisältö luokkaan sopivalla tyylillä. Siinä käytetään argumenttinä indexiä, mikä on etitty toisella functiolla. Haun tulokset on aina main osiossa tallennettu 'nykyinenLista' taulukkoon*/
 
 const yhdenTiedot = (idx) => {
     
 if(nykyinenLuokka === 'people/'){
+    /* kotiplaneetta pitää kanssa hakea yhteyden kautta ja ottaa sieltä sen nimi */
     let planeetta = nykyinenLista[idx].homeworld
     haeKotiplaneetta(planeetta).then( () => {
         kirjoitaTiedot()

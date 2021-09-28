@@ -21,11 +21,11 @@ const ElokuvienPosterit = [
     hakusanat: '+rise+skywalker'}
     ]
 
-
+/* async ja await ovat uusimpia synkronoituja javascript komentoja, ne siirtävät tehtävät selaimen hoidettavaksi ja toteuttavat ne vasta kun ne ovat tapahtuneet, koska esimerkiksi tietojen haku netin kautta vie aikaa */
 const haeVideot = async (hakusana) => {
     try {
     let res = await axios.get(`http://www.omdbapi.com/?t=${hakusana}&apikey=cbb99747`)
-    /* modernia tapaa otta tiedot vastauksesta, ottaa joukon eritietoja vastauksesta ja muuttaa ne käytettäviksi muuttujiksi */
+    /* modernia tapaa otta tiedot vastauksesta, ottaa joukon eritietoja vastauksesta ja muuttaa ne käytettäviksi muuttujiksi. Javascript deconstruction. Silloin kun syötetään suoraan muutujia html tekstin sekaan, käytetään väärinpäin olevia yläpilkkuja */
     const {Title, Actors, BoxOffice, Director, Metascore, Released, Writer, Plot} = res.data
     tiedotYhdestä.innerHTML = ''
     tiedotYhdestä.innerHTML = `
@@ -61,5 +61,5 @@ const laitaPosteritDomiin = () => {
         kuvaSektio.append(div)
     }
 }
-/* laitetaan elokuvat suoraan domiin */
+/* laitetaan elokuvat(niiden kuvat) suoraan domiin */
 laitaPosteritDomiin()

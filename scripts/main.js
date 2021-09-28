@@ -69,7 +69,7 @@ function lisääLista() {
 }
 /* Luodaan napit listalle ja lisätään niihin kuuntelija, jos haluaa vaihtaa sivua */
 const lisääNapit = () => {
-    /* jos arvo on null, eli napilla ei ole osoitetta, sitä ei luoda */
+    /* jos arvo on null, eli napilla ei ole osoitetta, sitä ei luoda. Pidempi tapa olisi "if(edellinenNappi !== null) tossa if lauseessa*/
     if(edellinenNappi) {
         vasenNappi.innerHTML = ''
         let nappi = document.createElement('button')
